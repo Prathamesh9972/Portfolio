@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Performance Optimization</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0a192f;
+            --secondary-bg: #112240;
+            --accent-color: #64ffda;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .content-header {
+            margin-top: 5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .image-container {
+            margin-bottom: 2rem;
+            text-align: center;
+            
+        }
+
+        .image-container img {
+            width: 70%;
+            height: auto;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .section-title {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .skill-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .skill-list a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        .skill-list a:hover {
+            color: #fff;
+        }
+
+        .skill-card {
+            background-color: var(--primary-bg);
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .reference-list {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding: 0;
+        }
+
+        .reference-list li {
+            list-style-type: none;
+            margin-bottom: 0.5rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body style="background-color: #112240; color: white;">
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+        <header class="content-header">
+            <h1>Web Performance Optimization</h1>
+            <p><small>Published on October 15, 2024 • 6 min read</small></p>
+        </header>
+
+        <div class="image-container">
+           <img src="web-performance.png" alt="Web Performance Optimization" class="img-fluid rounded" />
+        </div>
+
+        <p>Improving web application performance is essential to user experience, helping retain users and increase engagement. This guide explores techniques and best practices for optimizing web performance.</p>
+
+        <h2 class="section-title">Key Factors Affecting Web Performance</h2>
+        <ul class="skill-list">
+            <li><strong>Load Time:</strong> Fast loading times retain users by reducing waiting.</li>
+            <li><strong>Rendering Speed:</strong> Quick rendering ensures smooth, immediate user interactions.</li>
+            <li><strong>Server Response Time:</strong> Minimize response time for a more responsive experience.</li>
+            <li><strong>Network Latency:</strong> Reduce delays in fetching resources to boost speed.</li>
+        </ul>
+
+        <h2 class="section-title">Optimization Techniques</h2>
+        <div class="row">
+            <div class="col-md-6 fadeInUp">
+                <div class="skill-card">
+                    <h3 class="skill-icon"><i class="fas fa-image"></i></h3>
+                    <p><strong>Image Optimization:</strong> Compress images and use WebP for faster load times.</p>
+                </div>
+            </div>
+            <div class="col-md-6 fadeInUp">
+                <div class="skill-card">
+                    <h3 class="skill-icon"><i class="fas fa-code"></i></h3>
+                    <p><strong>Minification:</strong> Minify CSS, JavaScript, and HTML files for quicker loading.</p>
+                </div>
+            </div>
+            <div class="col-md-6 fadeInUp">
+                <div class="skill-card">
+                    <h3 class="skill-icon"><i class="fas fa-cogs"></i></h3>
+                    <p><strong>Browser Caching:</strong> Store resources locally for faster access on return visits.</p>
+                </div>
+            </div>
+            <div class="col-md-6 fadeInUp">
+                <div class="skill-card">
+                    <h3 class="skill-icon"><i class="fas fa-cloud-upload-alt"></i></h3>
+                    <p><strong>Content Delivery Network (CDN):</strong> Distribute content closer to users for reduced latency.</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Measuring Performance</h2>
+        <ul class="skill-list">
+            <li><a href="https://developers.google.com/speed/pagespeed/insights">Google PageSpeed Insights</a>: Analyze performance and receive actionable insights.</li>
+            <li><a href="https://developers.google.com/web/tools/lighthouse">Lighthouse</a>: Measure web page quality, including accessibility and performance.</li>
+            <li><a href="https://www.webpagetest.org/">WebPageTest</a>: Test site speed from multiple locations globally.</li>
+        </ul>
+
+        <h2 class="section-title">Best Practices for Frontend Development</h2>
+        <ul class="skill-list">
+            <li><strong>Simplify DOM Structure:</strong> Keep DOM minimal for faster rendering.</li>
+            <li><strong>Avoid Redirects:</strong> Reduce redirects to eliminate unnecessary HTTP requests.</li>
+            <li><strong>Asynchronous Loading:</strong> Load scripts asynchronously to prevent render blocking.</li>
+        </ul>
+
+        <h2 class="section-title">Backend Optimization Strategies</h2>
+        <ul class="skill-list">
+            <li><strong>Database Optimization:</strong> Use indexing and optimize queries for faster data retrieval.</li>
+            <li><strong>Caching:</strong> Implement server-side caching (e.g., Redis) to reduce database load.</li>
+            <li><strong>Load Balancing:</strong> Distribute traffic across servers to prevent overloads.</li>
+        </ul>
+
+        <h2 class="section-title">Mobile Performance Considerations</h2>
+        <ul class="skill-list">
+            <li><strong>Responsive Design:</strong> Make sure your site adapts to all screen sizes.</li>
+            <li><strong>Optimize Resources:</strong> Limit use of heavy assets for mobile efficiency.</li>
+            <li><strong>PWA Implementation:</strong> Use PWAs for better mobile performance and offline use.</li>
+        </ul>
+
+        <h2 class="section-title">Conclusion</h2>
+        <p>Optimizing web performance is vital for enhancing user experience. Implementing these strategies can significantly improve your web app’s efficiency and usability.</p>
+
+        <h2 class="section-title">References</h2>
+        <ul class="reference-list">
+            <li>Google. (2024). <a href="https://developers.google.com/speed/pagespeed/insights">PageSpeed Insights</a>.</li>
+            <li>Mozilla. (2024). <a href="https://developer.mozilla.org/en-US/docs/Web/Performance">Performance Overview</a>.</li>
+            <li>Smashing Magazine. (2024). <a href="https://www.smashingmagazine.com/tag/performance/">Web Performance Articles</a>.</li>
+        </ul>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Load header and footer -->
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data)
+            .catch(error => console.error('Error loading header:', error));
+
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data)
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
+</body>
+</html>

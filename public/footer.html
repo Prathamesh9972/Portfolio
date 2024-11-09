@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Component</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0a192f;
+            --secondary-bg: #112240;
+            --accent-color: #64ffda;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
+            --hover-color: rgba(100, 255, 218, 0.1);
+        }
+
+        .footer {
+            background: var(--secondary-bg);
+            color: var(--text-primary);
+            padding: 3rem 0;
+            position: relative;
+            margin-top: 4rem;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                var(--accent-color) 50%, 
+                transparent 100%);
+        }
+
+        .footer-heading {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50%;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .footer-heading:hover::after {
+            width: 100%;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .footer-links a::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+            transform: translateX(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            background: var(--primary-bg);
+            padding: 1rem 0;
+            margin-top: 2rem;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .contact-info i {
+            color: var(--accent-color);
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .footer-section {
+                margin-bottom: 2rem;
+            }
+            
+            .footer-bottom {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- Quick Links -->
+                <div class="col-md-3 col-sm-6 footer-section">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="project.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Skills -->
+                <div class="col-md-3 col-sm-6 footer-section">
+                    <h3 class="footer-heading">Skills</h3>
+                    <ul class="footer-links">
+                        <li><a href="skills.html#frontend">Frontend Development</a></li>
+                        <li><a href="skills.html#backend">Backend Development</a></li>
+                        <li><a href="skills.html#tools">Tools & Technologies</a></li>
+                        <li><a href="skills.html#soft-skills">Soft Skills</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-3 col-sm-6 footer-section">
+                    <h3 class="footer-heading">Contact Info</h3>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>prathameshkapadne1111@gmail.com</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 8767754641</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Pune, India</span>
+                    </div>
+                </div>
+
+
+                <div class="col-md-3 col-sm-6 footer-section">
+                    <h3 class="footer-heading">Connect</h3>
+                    <p class="mb-3" style="color: var(--text-secondary);">Follow me on social media for updates and tech insights.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/Prathamesh9972" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/prathamesh-kapadne/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://x.com/Prathamesh19891" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/prathamesh_5999/?locale=kk-KZ" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <p class="mb-0">© 2024 Prathamesh Kapadne. All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

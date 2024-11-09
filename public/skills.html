@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-bg: #0a192f;
+            --secondary-bg: #112240;
+            --accent-color: #64ffda;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
+            --hover-color: rgba(100, 255, 218, 0.1);
+        }
+
+        body {
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            font-family: 'Calibre', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .skills-container {
+            padding: 8rem;
+            position: relative;
+        }
+
+        .skills-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--secondary-bg);
+            opacity: 0.1;
+            transform: translateX(-50%);
+        }
+
+        .section-title {
+            color: var(--accent-color);
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            text-align: center;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+            /* animation: glow 2s ease-in-out infinite alternate; */
+        }
+
+        .section-title::after {
+            
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 100px;
+            height: 3px;
+            background: var(--accent-color);
+            transform: translateX(-50%);
+            animation: expandWidth 2s ease-in-out infinite;
+        }
+
+        .skill-card {
+            background: var(--secondary-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            height: 100%;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            perspective: 1500px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: calc(var(--delay) * 0.2s);
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            padding: 2px;
+            background: linear-gradient(45deg, transparent, var(--accent-color), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            transition: all 0.5s ease;
+            filter: drop-shadow(0 0 10px var(--accent-color));
+        }
+
+        .skill-card:hover .skill-icon {
+            transform: scale(1.2) rotate(360deg);
+            color: var(--text-primary);
+        }
+
+        .skill-name {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1.2rem;
+            position: relative;
+            padding-left: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-name::before {
+            content: '▹';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover .skill-name::before {
+            transform: translateX(5px) rotate(90deg);
+        }
+
+        .skill-list {
+            color: var(--text-secondary);
+            list-style: none;
+            padding: 0;
+        }
+
+        .skill-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            padding-left: 1.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-list li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .skill-list li:hover {
+            transform: translateX(10px);
+            color: var(--text-primary);
+        }
+
+        .skill-list li:hover::before {
+            opacity: 1;
+            transform: scale(1.2);
+        }
+
+        .skill-list a {
+            color: var(--accent-color);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            margin-left: 8px;
+        }
+
+        .skill-list a:hover {
+            opacity: 1;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px var(--accent-color), 0 0 10px var(--accent-color);
+            }
+            to {
+                text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+            }
+        }
+
+        @keyframes expandWidth {
+            0%, 100% { width: 100px; }
+            50% { width: 150px; }
+        }
+
+        .btn-custom {
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn-custom::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--accent-color);
+            transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .btn-custom:hover {
+            color: var(--primary-bg);
+        }
+
+        .btn-custom:hover::before {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .skill-card {
+                margin-bottom: 2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body style="background-color: #112240; color: white;">
+    <div id="header-placeholder"></div>
+    <div class="container skills-container">
+        <h1 class="section-title">Skills & Expertise</h1>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4" style="--delay: 1;">
+                <div class="skill-card">
+                    <i class="fas fa-code skill-icon"></i>
+                    <h3 class="skill-name">Programming Languages</h3>
+                    <ul class="skill-list">
+                        <li>JavaScript <a href="https://www.javascript.com/" target="_blank">[Reference]</a></li>
+                        <li>C/C++ <a href="https://www.cplusplus.com/" target="_blank">[Reference]</a></li>
+                        <li>Core Java <a href="https://www.java.com/en/" target="_blank">[Reference]</a></li>
+                        <li>Python <a href="https://www.python.org/" target="_blank">[Reference]</a></li>
+                        <li>SQL <a href="https://www.w3schools.com/sql/" target="_blank">[Reference]</a></li>
+                        <li>HTML/CSS <a href="https://www.w3schools.com/html/" target="_blank">[Reference]</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="col-md-4 mb-4" style="--delay: 2;">
+                <div class="skill-card">
+                    <i class="fas fa-layer-group skill-icon"></i>
+                    <h3 class="skill-name">Frameworks & Libraries</h3>
+                    <ul class="skill-list">
+                        <li>Express.js <a href="https://expressjs.com/" target="_blank">[Reference]</a></li>
+                        <li>Node.js <a href="https://nodejs.org/en/" target="_blank">[Reference]</a></li>
+                        <li>React.js <a href="https://reactjs.org/" target="_blank">[Reference]</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="col-md-4 mb-4" style="--delay: 3;">
+                <div class="skill-card">
+                    <i class="fas fa-tools skill-icon"></i>
+                    <h3 class="skill-name">Developer Tools</h3>
+                    <ul class="skill-list">
+                        <li>Git/GitHub <a href="https://git-scm.com/" target="_blank">[Reference]</a></li>
+                        <li>XAMPP <a href="https://www.apachefriends.org/index.html" target="_blank">[Reference]</a></li>
+                        <li>Docker <a href="https://www.docker.com/" target="_blank">[Reference]</a></li>
+                        <li>IntelliJ <a href="https://www.jetbrains.com/idea/" target="_blank">[Reference]</a></li>
+                        <li>Eclipse <a href="https://www.eclipse.org/" target="_blank">[Reference]</a></li>
+                        <li>Visual Studio <a href="https://visualstudio.microsoft.com/" target="_blank">[Reference]</a></li>
+                        <li>Stackblitz <a href="https://stackblitz.com/" target="_blank">[Reference]</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="col-md-6 mb-4" style="--delay: 4;">
+                <div class="skill-card">
+                    <i class="fas fa-users skill-icon"></i>
+                    <h3 class="skill-name">Soft Skills</h3>
+                    <ul class="skill-list">
+                        <li>Strong problem-solving skills</li>
+                        <li>Excellent communication</li>
+                        <li>Adaptable to fast-paced environments</li>
+                        <li>High-level teamwork</li>
+                        <li>Leadership abilities</li>
+                        <li>Critical thinking</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="col-md-6 mb-4" style="--delay: 5;">
+                <div class="skill-card">
+                    <i class="fas fa-language skill-icon"></i>
+                    <h3 class="skill-name">Languages</h3>
+                    <ul class="skill-list">
+                        <li>English</li>
+                        <li>Hindi</li>
+                        <li>Marathi</li>
+                    </ul>
+                    <button class="btn btn-custom mt-3">Read More</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer-placeholder"></div>
+    
+    <script>
+        // Load header and footer
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('header-placeholder').innerHTML = data)
+            .catch(error => console.error('Error loading header:', error));
+    
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-placeholder').innerHTML = data)
+            .catch(error => console.error('Error loading footer:', error));
+    </script>
+</body>
+</html>
