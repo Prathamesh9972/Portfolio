@@ -1,14 +1,9 @@
 # Personal Portfolio 🚀
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Web-brightgreen)](your-portfolio-url)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](your-linkedin-url)
-[![Email](https://img.shields.io/badge/Email-Contact-red)](mailto:your.email@example.com)
-
 ## 👋 Welcome to My Portfolio
 
 A modern, responsive portfolio website showcasing my professional journey, skills, and achievements in software development. Built with a focus on clean design, smooth animations, and engaging user experience.
 
-![Portfolio Preview](link-to-your-portfolio-screenshot.png)
 
 ## ✨ Features
 
@@ -139,7 +134,7 @@ To modify or enhance the portfolio:
 
 Feel free to reach out if you have any questions or just want to connect:
 
-- Email: your.email@example.com
+- Email: prathameshkapadne1111@gmail.com
 
 ## 📄 License
 
@@ -147,4 +142,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ---
 
-<p align="center">Designed & Built with ❤️ by [Your Name]</p>
+<p align="center">Designed & Built with ❤️ by [Prathamesh Kapadne]</p>
